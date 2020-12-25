@@ -66,6 +66,13 @@ const GET_LADING_PAGE = /* GraphQL */ `
     }
   }
 
+  fragment sectionAgenda on LandingPage {
+    sectionAgenda {
+      title
+      description
+    }
+  }
+
   query GET_LADING_PAGE {
     landingPage {
       ...logo
@@ -74,6 +81,7 @@ const GET_LADING_PAGE = /* GraphQL */ `
       ...sectionTech
       ...sectionConcepts
       ...sectionModules
+      ...sectionAgenda
     }
   }
 `
