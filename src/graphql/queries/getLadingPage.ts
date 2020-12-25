@@ -107,6 +107,21 @@ const GET_LADING_PAGE = /* GraphQL */ `
     }
   }
 
+  fragment sectionReview on LandingPage {
+    sectionReviews {
+      title
+      reviews {
+        id
+        name
+        text
+        photo {
+          alternativeText
+          url
+        }
+      }
+    }
+  }
+
   query GET_LADING_PAGE {
     landingPage {
       ...logo
@@ -118,6 +133,7 @@ const GET_LADING_PAGE = /* GraphQL */ `
       ...sectionAgenda
       ...pricingBox
       ...sectionAboutUs
+      ...sectionReview
     }
   }
 `
