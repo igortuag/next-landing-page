@@ -3,18 +3,22 @@ import React from 'react'
 import Container from 'components/Container'
 import Heading from 'components/Heading'
 
-import faq from './content'
 import * as S from './styles'
+import { sectionFaqProps } from 'types/api'
 
-const SectionFaq = () => (
+type Props = {
+  sectionFaq: sectionFaqProps
+}
+
+const SectionFaq = ({ sectionFaq }: Props) => (
   <S.Wrapper>
     <S.Content>
       <Container>
-        <Heading>FAQ</Heading>
+        <Heading>{sectionFaq.title}</Heading>
 
         <S.Questions>
-          {faq.map(({ question, answer }, index) => (
-            <S.Question key={index}>
+          {sectionFaq.questions.map(({ id, question, answer }) => (
+            <S.Question key={id}>
               <Heading lineBottom>{question}</Heading>
               <div dangerouslySetInnerHTML={{ __html: answer }} />
             </S.Question>
